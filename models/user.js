@@ -4,11 +4,17 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
+  email: String,
+  typeChallenge: String,
+  challengeTimeLeft: Number,
+  challengeAchieved: Boolean,
+  wastes: [{ id: 'ObjectId', amount: Number, day: String }]
 }, {
   timestamps: {
     createdAt: 'created_at',
-    updatedAt: 'updated_at'
-  },
+    updatedAt: 'updated_at',
+    challengeCreatedAt: 'challengeCreatedAt'
+  }
 });
 
 const User = mongoose.model('User', userSchema);
