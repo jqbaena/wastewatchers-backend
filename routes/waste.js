@@ -6,7 +6,7 @@ const router = express.Router();
 
 const Waste = require('../models/waste');
 
-router.get('/', (req, res, next) => {
+router.get('/wastes', (req, res, next) => {
   Waste.find()
     .then(waste => {
       if (!waste) {
