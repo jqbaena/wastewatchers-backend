@@ -23,7 +23,6 @@ router.get('/wastes', (req, res, next) => {
 router.post('/wastes/add', (req, res, next) => {
   const userId = req.session.currentUser;
   const wasteData = req.body;
-  console.log('Data', wasteData);
   User.findById(userId)
     .then(user => {
       if (!user) {
@@ -36,7 +35,6 @@ router.post('/wastes/add', (req, res, next) => {
         day: wasteData.day,
         kind: wasteData.wastes
       });
-      console.log('newHistory', newHistory);
       user.wastes.push(newHistory);
       user.save()
         .then(response => {
