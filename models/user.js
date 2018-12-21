@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const History = require('./history');
 
 const userSchema = new Schema({
   username: String,
@@ -8,7 +9,7 @@ const userSchema = new Schema({
   typeChallenge: String,
   challengeTimeLeft: Number,
   challengeAchieved: Boolean,
-  wastes: [{ id: 'ObjectId', amount: Number, day: String }]
+  wastes: [History.schema]
 }, {
   timestamps: {
     createdAt: 'created_at',
